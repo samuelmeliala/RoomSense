@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Room Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>RoomSense Dashboard</h1>
+        <p>Real-time Monitoring</p>
+      </div>
+
+      <div class="status">
+        <div class="status-item">
+          <span id="connection-status" class="online">● Online</span>
+        </div>
+        <div class="status-item">
+          Last Update: <span id="last-update">Never</span>
+        </div>
+      </div>
+
+      <div id="alerts"></div>
+
+      <div class="sensors">
+        <div class="sensor-card air-quality">
+          <h3>CO2 Value</h3>
+          <div class="sensor-value">
+            <span id="co2-value">--</span>
+            <span class="sensor-unit">ppm</span>
+          </div>
+          <div class="sensor-info">
+            Sensor: MQ135<br />
+            Status: <span id="air-quality-status">--</span>
+          </div>
+        </div>
+
+        <div class="sensor-card temperature">
+          <h3>Temperature</h3>
+          <div class="sensor-value">
+            <span id="temp-value">--</span>
+            <span class="sensor-unit">°C</span>
+          </div>
+          <div class="sensor-info">Sensor: DHT22</div>
+        </div>
+
+        <div class="sensor-card humidity">
+          <h3>Humidity</h3>
+          <div class="sensor-value">
+            <span id="humidity-value">--</span>
+            <span class="sensor-unit">%</span>
+          </div>
+          <div class="sensor-info">Sensor: DHT22</div>
+        </div>
+
+        <div class="sensor-card light">
+          <h3>Light Level</h3>
+          <div class="sensor-value">
+            <span id="light-value">--</span>
+            <span class="sensor-unit">lux</span>
+          </div>
+          <div class="sensor-info">Sensor: BH1750</div>
+        </div>
+      </div>
+
+      <div class="charts">
+        <div class="chart-container">
+          <div class="chart-title">CO2 Value Over Time</div>
+          <canvas id="co2Chart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <div class="chart-title">Temperature & Humidity</div>
+          <canvas id="tempChart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <div class="chart-title">Light Level Over Time</div>
+          <canvas id="lightChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/web/index.js"></script>
+  </body>
+</html>
